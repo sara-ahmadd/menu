@@ -93,12 +93,20 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   //1-create card for each meal.
   let customerCard = document.createElement("div");
-  addIdAndClassName("card", `${section.value.toLowerCase()}`, customerCard, `card-${num}`)
-  cardData.section = `${section.value.toLowerCase()}`;
-
+  if (section.value !== "") {
+    addIdAndClassName(
+      "card",
+      `${section.value.toLowerCase()}`,
+      customerCard,
+      `card-${num}`
+    );
+    cardData.section = `${section.value.toLowerCase()}`;
+  } else {
+    return;
+  }
   //create button to delete the unavailable dishes.
   let deleteBtn = document.createElement("button");
-  addIdAndClassName("delete-me", `btn-${num}`, deleteBtn, `card-${num}`)
+  addIdAndClassName("delete-me", `btn-${num}`, deleteBtn, `card-${num}`);
   deleteBtn.innerText = "x";
   deleteEvent(deleteBtn, `card-${num}`);
   customerCard.appendChild(deleteBtn);
@@ -106,7 +114,7 @@ form.addEventListener("submit", (e) => {
 
   //2-create the image card.
   let customerCardImg = document.createElement("div");
-  addIdAndClassName("img", `img-${num}`, customerCardImg, `card-${num}`)
+  addIdAndClassName("img", `img-${num}`, customerCardImg, `card-${num}`);
   customerCard.appendChild(customerCardImg);
 
   //3-create the info card.
@@ -116,22 +124,42 @@ form.addEventListener("submit", (e) => {
 
   //4-parent of name and price.
   let namePriceParent = document.createElement("div");
-  addIdAndClassName("name-price-parent", `parent-${num}`, namePriceParent, `card-${num}`)
+  addIdAndClassName(
+    "name-price-parent",
+    `parent-${num}`,
+    namePriceParent,
+    `card-${num}`
+  );
   customerCardInfo.appendChild(namePriceParent);
 
   //5-add name of the meal in paragraph.
   let customerCardInfoParag = document.createElement("p");
-  addIdAndClassName("name", `name-${num}`, customerCardInfoParag, `card-${num}`)
+  addIdAndClassName(
+    "name",
+    `name-${num}`,
+    customerCardInfoParag,
+    `card-${num}`
+  );
   namePriceParent.appendChild(customerCardInfoParag);
 
   //6-add price of the meal in paragraph.
   let customerCardInfoPrice = document.createElement("h3");
-  addIdAndClassName("price", `price-${num}`, customerCardInfoPrice, `card-${num}`)
+  addIdAndClassName(
+    "price",
+    `price-${num}`,
+    customerCardInfoPrice,
+    `card-${num}`
+  );
   namePriceParent.appendChild(customerCardInfoPrice);
 
   //7-add description of the meal in paragraph.
   let customerCardInfoDesc = document.createElement("div");
-  addIdAndClassName("description", `desc-${num}`, customerCardInfoDesc, `card-${num}`)
+  addIdAndClassName(
+    "description",
+    `desc-${num}`,
+    customerCardInfoDesc,
+    `card-${num}`
+  );
   customerCardInfo.appendChild(customerCardInfoDesc);
 
   //first add the image of the meal.
@@ -140,8 +168,12 @@ form.addEventListener("submit", (e) => {
 
   //add name of the meal.
   let mealName = document.querySelector("[placeholder='Name']");
-  customerCardInfoParag.innerText = `${mealName.value.toUpperCase()}`;
-  cardData.name = mealName.value;
+  if (mealName.value !== "") {
+    customerCardInfoParag.innerText = `${mealName.value.toUpperCase()}`;
+    cardData.name = mealName.value;
+  } else {
+    return;
+  }
 
   //add price of the meal.
   let mealPrice = document.querySelector("[placeholder='Price']");
@@ -169,46 +201,81 @@ for (let i = 1; i <= 10000; i++) {
   if (stringObjectOfData !== null) {
     //1-create card for each meal.
     let card = document.createElement("div");
-    addIdAndClassName("card", `${stringObjectOfData.section}`, card, `card-${i}`)
+    addIdAndClassName(
+      "card",
+      `${stringObjectOfData.section}`,
+      card,
+      `card-${i}`
+    );
     //create button to delete the unavailable dishes.
     let deleteBtn = document.createElement("button");
     addIdAndClassName("delete-me", `btn-${i}`, deleteBtn, `card-${i}`);
     deleteBtn.innerText = "x";
     card.appendChild(deleteBtn);
-    deleteEvent(deleteBtn, `card-${i}`)
+    deleteEvent(deleteBtn, `card-${i}`);
     mealsDiv.appendChild(card);
 
     //2-create the image card.
     let customerCardImg = document.createElement("div");
-    addIdAndClassName("img", `${stringObjectOfData.section}`, customerCardImg, `card-${i}`)
+    addIdAndClassName(
+      "img",
+      `${stringObjectOfData.section}`,
+      customerCardImg,
+      `card-${i}`
+    );
     customerCardImg.innerHTML = stringObjectOfData.image;
     card.appendChild(customerCardImg);
 
     //3-create the info card.
     let customerCardInfo = document.createElement("div");
-    addIdAndClassName("info", `${stringObjectOfData.section}`, customerCardInfo, `card-${i}`)
+    addIdAndClassName(
+      "info",
+      `${stringObjectOfData.section}`,
+      customerCardInfo,
+      `card-${i}`
+    );
     card.appendChild(customerCardInfo);
 
     //4-parent of name and price.
     let namePriceParent = document.createElement("div");
-    addIdAndClassName("name-price-parent", `${stringObjectOfData.section}`, namePriceParent, `card-${i}`)
+    addIdAndClassName(
+      "name-price-parent",
+      `${stringObjectOfData.section}`,
+      namePriceParent,
+      `card-${i}`
+    );
     customerCardInfo.appendChild(namePriceParent);
 
     //5-add name of the meal in paragraph.
     let customerCardInfoParag = document.createElement("p");
-    addIdAndClassName("name", `${stringObjectOfData.section}`, customerCardInfoParag, `card-${i}`)
+    addIdAndClassName(
+      "name",
+      `${stringObjectOfData.section}`,
+      customerCardInfoParag,
+      `card-${i}`
+    );
     customerCardInfoParag.innerText = stringObjectOfData.name;
     namePriceParent.appendChild(customerCardInfoParag);
 
     //6-add price of the meal in paragraph.
     let customerCardInfoPrice = document.createElement("h3");
-    addIdAndClassName("price", `${stringObjectOfData.section}`, customerCardInfoPrice, `card-${i}`)
+    addIdAndClassName(
+      "price",
+      `${stringObjectOfData.section}`,
+      customerCardInfoPrice,
+      `card-${i}`
+    );
     customerCardInfoPrice.innerText = stringObjectOfData.price;
     namePriceParent.appendChild(customerCardInfoPrice);
 
     //7-add description of the meal in paragraph.
     let customerCardInfoDesc = document.createElement("div");
-    addIdAndClassName("description", `${stringObjectOfData.section}`, customerCardInfoDesc, `card-${i}`)
+    addIdAndClassName(
+      "description",
+      `${stringObjectOfData.section}`,
+      customerCardInfoDesc,
+      `card-${i}`
+    );
     customerCardInfoDesc.innerText = stringObjectOfData.description;
     customerCardInfo.appendChild(customerCardInfoDesc);
 
@@ -322,7 +389,7 @@ let upBtn = document.querySelector("#up");
 upBtn.addEventListener("click", (e) => {
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
+    behavior: "smooth",
   });
 });
 //display the up button on scroll > 100px.
