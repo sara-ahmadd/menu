@@ -77,7 +77,7 @@ function deleteEvent(button, item) {
 function addIdAndClassName(className, id, elementName, anotherClass) {
   elementName.className = `${className}`;
   elementName.id = `${id}`;
-  elementName.classList.add(`${anotherClass}`);
+  elementName.classList.add(`${anotherClass}`, `${id}`);
 }
 
 /*created variable to count how many times the form submitted, and create new card each time.
@@ -283,27 +283,29 @@ for (let i = 1; i <= 10000; i++) {
     let divs = document.querySelectorAll(`.card-${i}`);
 
     //get meals for breakfast.
-    let breakfast = document.querySelector("#breakfast");
+    let breakfast = document.querySelector("li a#breakfast");
     breakfast.addEventListener("click", (e) => {
       hide();
       divs.forEach((div) => {
-        if (div.id === "breakfast") {
+        div.style.cssText = "display : none";
+        if (div.classList.contains("breakfast") || div.id == "breakfast") {
           div.style.display = "flex";
           allMealsDescription.forEach((desc) => {
             desc.style.cssText = 'overflowWrap : "break-word";';
           });
         } else {
-          div.style.display = "none";
+          div.style.cssText = "display : none";
         }
       });
     });
 
     //get meals for lunch.
-    let lunch = document.querySelector("#lunch");
+    let lunch = document.querySelector("li a#lunch");
     lunch.addEventListener("click", (e) => {
       hide();
       divs.forEach((div) => {
-        if (div.id === "lunch") {
+        div.style.cssText = "display : none";
+        if (div.classList.contains("lunch") || div.id == "lunch") {
           div.style.display = "flex";
           allMealsDescription.forEach((desc) => {
             desc.style.cssText = 'overflowWrap : "break-word";';
@@ -314,38 +316,39 @@ for (let i = 1; i <= 10000; i++) {
       });
     });
     //get meals for dinner.
-    let dinner = document.querySelector("#dinner");
+    let dinner = document.querySelector("li a#dinner");
     dinner.addEventListener("click", (e) => {
       hide();
       divs.forEach((div) => {
-        if (div.id === "dinner") {
+        div.style.cssText = "display : none";
+        if (div.classList.contains("dinner") || div.id == "dinner") {
           div.style.display = "flex";
           allMealsDescription.forEach((desc) => {
             desc.style.cssText = 'overflowWrap : "break-word";';
           });
         } else {
-          div.style.display = "none";
+          div.style.cssText = "display : none";
         }
       });
     });
     //get shakes.
-    let shakes = document.querySelector("#shakes");
+    let shakes = document.querySelector("li a#shakes");
     shakes.addEventListener("click", (e) => {
       hide();
       divs.forEach((div) => {
-        div.style.display = "none";
-        if (div.id === "shakes") {
+        div.style.cssText = "display : none";
+        if (div.classList.contains("shakes") || div.id == "shakes") {
           div.style.display = "flex";
           allMealsDescription.forEach((desc) => {
             desc.style.cssText = 'overflowWrap : "break-word";';
           });
         } else {
-          div.style.display = "none";
+          div.style.cssText = "display : none";
         }
       });
     });
     //get all meals.
-    let allMeals = document.querySelector("#all");
+    let allMeals = document.querySelector("li a#all");
     allMeals.addEventListener("click", (e) => {
       hide();
       divs.forEach((div) => {
