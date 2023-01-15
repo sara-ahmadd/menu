@@ -1,6 +1,6 @@
 let options = document.querySelectorAll(".options ul li a");
 let imageUrl = document.querySelector(
-  'input[placeholder="Write Name of Image Here"]'
+  'input[placeholder="Write URL of Image Here"]'
 );
 let form = document.querySelector("form");
 
