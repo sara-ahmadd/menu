@@ -1,4 +1,15 @@
 let options = document.querySelectorAll(".options ul li a");
+let imageUrl = document.querySelector(
+  'input[placeholder="Write Name of Image Here"]'
+);
+let form = document.querySelector("form");
+
+let imgDiv = document.createElement("div");
+
+let section = document.querySelector(
+  '[placeholder="Section(Breakfast,Lunch or Dinner)"]'
+);
+
 options.forEach((option) => {
   option.addEventListener("click", (e) => {
     options.forEach((op) => {
@@ -7,62 +18,16 @@ options.forEach((option) => {
     option.classList.add("active");
   });
 });
-let form = document.querySelector("form");
-
-let imgDiv = document.createElement("div");
 imgDiv.className = "add-img";
 imgDiv.innerText = "Image Of The Meal";
 imgDiv.style.textAlign = "center";
 form.prepend(imgDiv);
-let imagesArray = [
-  "item-1.jpeg",
-  "item-2.jpeg",
-  "item-3.jpeg",
-  "item-4.jpeg",
-  "item-5.jpeg",
-  "item-6.jpeg",
-  "item-7.jpeg",
-  "item-8.jpeg",
-  "item-9.jpeg",
-  "item-10.jpeg",
-  "item-11.jpeg",
-  "item-12.jpeg",
-  "item-13.jpeg",
-  "item-14.jpeg",
-  "item-15.jpeg",
-  "item-16.jpg",
-];
-let inputImg = document.querySelector("#names");
-inputImg.addEventListener("click", (e) => {
-  e.preventDefault();
-  let itemsCard = document.createElement("div");
-  itemsCard.style.cssText =
-    "padding:10px; border-radius:10px; display:flex; flex-wrap:wrap";
 
-  inputImg.insertAdjacentElement("afterend", itemsCard);
-  itemsCard.append(`Choose Any Of Those Images:  `);
-  imagesArray.forEach((img) => {
-    let eachImage = document.createTextNode(`   ${img} / `);
-    itemsCard.appendChild(eachImage);
-  });
-  setTimeout(() => {
-    itemsCard.style.display = "none";
-  }, 3000);
-});
-let inputImageName = document.querySelector(
-  '[placeholder="Write Name of Image Here"]'
-);
-
-inputImageName.addEventListener("input", (e) => {
-  for (let i = 0; i < imagesArray.length; i++) {
-    if (inputImageName.value === imagesArray[i]) {
-      imgDiv.innerHTML = `<img src='images/${inputImageName.value}'>`;
-    }
+imageUrl.addEventListener("focusout", (e) => {
+  if (imageUrl.value) {
+    imgDiv.innerHTML = `<img src='${imageUrl.value}'>`;
   }
 });
-let section = document.querySelector(
-  '[placeholder="Section(Breakfast,Lunch or Dinner)"]'
-);
 //get the customer meals card and append data to it.
 let customerMeals = document.querySelector(".meals");
 
