@@ -364,8 +364,8 @@ upBtn.addEventListener("click", (e) => {
 //display the up button on scroll > 100px.
 document.onscroll = () => {
   if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
+    document.body.scrollTop > 300 ||
+    document.documentElement.scrollTop > 300
   ) {
     upBtn.style.display = "block";
   } else {
