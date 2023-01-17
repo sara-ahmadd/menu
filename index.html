@@ -33,84 +33,22 @@
         </ul>
       </div>
       <form action="">
-        <!-- <button id="names">Show Available Images Names</button> -->
-        <input type="text" placeholder="Write URL of Image Here" />
-        <input type="text" placeholder="Name" />
-        <input type="text" placeholder="Section(Breakfast,Lunch or Dinner)" />
-        <input type="price" placeholder="Price" />
-        <textarea type="textarea" placeholder="Description"></textarea>
+        <input type="text" required placeholder="Write URL of Image Here" />
+        <input type="text" required placeholder="Name" />
+        <input
+          type="text"
+          required
+          placeholder="Section(Breakfast,Lunch or Dinner)"
+        />
+        <input type="price" required placeholder="Price" />
+        <textarea type="textarea" required placeholder="Description"></textarea>
         <input type="submit" value="Add" />
       </form>
       <hr id="last-line" />
       <button id="up">Up</button>
-      <div class="meals" id="meals">
-        <div class="card card-1 breakfast" id="breakfast">
-          <button class="delete-me card-1" id="btn-1">x</button>
-          <div class="img card-1 breakfast">
-            <img src="images/item-1.jpeg" />
-          </div>
-          <div class="info card-1 breakfast">
-            <div class="name-price-parent card-1 breakfast">
-              <p class="name card-1 breakfast">pancakes</p>
-              <h3 class="price card-1 breakfast">$23,44</h3>
-            </div>
-            <div class="description card-1 breakfast">
-              I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock
-              freegan copper mug whatever cold-pressed
-            </div>
-          </div>
-        </div>
-        <div class="card card-2 lunch" id="lunch">
-          <button class="delete-me card-2" id="btn-2">x</button>
-          <div class="img card-2 lunch">
-            <img src="images/item-2.jpeg" />
-          </div>
-          <div class="info card-2 lunch">
-            <div class="name-price-parent card-2" id="lunch">
-              <p class="name card-2 lunch">Diner Double</p>
-              <h3 class="price card-2 lunch">$50,00</h3>
-            </div>
-            <div class="description card-2 lunch">
-              vaporware iPhone mumblecore selvage raw denim slow-carb leggings
-              gochujang helvetica man braid jianbing. Marfa thundercats
-            </div>
-          </div>
-        </div>
-        <div class="card card-3 shakes" id="shakes">
-          <button class="delete-me card-3" id="btn-3">x</button>
-          <div class="img card-3 shakes">
-            <img src="images/item-3.jpeg" />
-          </div>
-          <div class="info card-3 shakes">
-            <div class="name-price-parent card-3 shakes">
-              <p class="name card-3 shakes">Godzilla Milkshake</p>
-              <h3 class="price card-3 shakes">$50,00</h3>
-            </div>
-            <div class="description card-3 shakes">
-              ombucha chillwave fanny pack 3 wolf moon street art photo booth
-              before they sold out organic viral.
-            </div>
-          </div>
-        </div>
-        <div class="card card-4 dinner" id="dinner">
-          <button class="delete-me card-4" id="btn-4" style="display: none">
-            x
-          </button>
-          <div class="img card-4 dinner">
-            <img src="images/item-4.jpeg" />
-          </div>
-          <div class="info card-4 dinner">
-            <div class="name-price-parent card-4 dinner">
-              <p class="name card-4 dinner">Country Delight</p>
-              <h3 class="price card-4 dinner">$30,00</h3>
-            </div>
-            <div class="description card-4 dinner">
-              Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism
-              austin mlkshk truffaut,
-            </div>
-          </div>
-        </div>
-      </div>
+      <br />
+      <p class="add-meals">Start Adding Your Meals!</p>
+      <div class="meals" id="meals"></div>
     </div>
   </body>
 </html>

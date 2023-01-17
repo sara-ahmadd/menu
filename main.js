@@ -155,8 +155,8 @@ form.addEventListener("submit", (e) => {
   localStorage.setItem(`card-${num}`, jsonData);
 });
 
-//create card foe each meal with data brought from the local storage.
-for (let i = 1; i <= 10000; i++) {
+//create card for each meal with data brought from the local storage.
+for (let i = 1; i < 10000; i++) {
   //get the last image entered from local storage.
   let dataInTheLocalStorage = localStorage.getItem(`card-${i}`);
   let stringObjectOfData = JSON.parse(dataInTheLocalStorage);
@@ -371,3 +371,9 @@ document.onscroll = () => {
     upBtn.style.display = "none";
   }
 };
+//show or hide the starting paragraph(Add your meals)
+if (customerMeals.innerHTML === "") {
+  document.querySelector(".add-meals").style.display = "block";
+} else {
+  document.querySelector(".add-meals").style.display = "none";
+}
