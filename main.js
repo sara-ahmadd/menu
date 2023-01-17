@@ -153,10 +153,11 @@ form.addEventListener("submit", (e) => {
   //store data in local storage as a json object.
   let jsonData = JSON.stringify(cardData);
   localStorage.setItem(`card-${num}`, jsonData);
+  window.location.reload();
 });
 
 //create card for each meal with data brought from the local storage.
-for (let i = 1; i < 10000; i++) {
+for (let i = 0; i <= 10000; i++) {
   //get the last image entered from local storage.
   let dataInTheLocalStorage = localStorage.getItem(`card-${i}`);
   let stringObjectOfData = JSON.parse(dataInTheLocalStorage);
@@ -245,7 +246,7 @@ for (let i = 1; i < 10000; i++) {
     customerCardInfo.appendChild(customerCardInfoDesc);
 
     let allMealsDescription = document.querySelectorAll(".description");
-    let divs = document.querySelectorAll(`.card-${i}`);
+    let divs = document.querySelectorAll(`.card.card-${i}`);
 
     //get meals for breakfast.
     let breakfast = document.querySelector("li a#breakfast");
